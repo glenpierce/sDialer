@@ -12,11 +12,16 @@
     >
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
         android:id="@+id/phonenumber"
         android:textSize="30sp"
-        android:layout_gravity="center_horizontal"/>
+        android:background="@drawable/phonenumbertextview"
+        android:layout_margin="6dp"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:text="test"/>
 
     <TableLayout
         android:layout_width="match_parent"

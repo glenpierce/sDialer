@@ -19,7 +19,7 @@ public class MainActivity extends Activity
 		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 		DialPadFragment dialpadFragment = new DialPadFragment();
-		fragmentTransaction.add(R.id.dialpadlayout, dialpadFragment);
+		fragmentTransaction.replace(R.id.phonescreen, dialpadFragment);
 		fragmentTransaction.commit();
 	}
 }
