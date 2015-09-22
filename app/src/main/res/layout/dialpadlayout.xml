@@ -9,87 +9,98 @@
               tools:context=".MainActivity"
               android:orientation="vertical"
               android:id="@+id/dialpadlayout"
+    android:weightSum="8"
     >
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="60sp"
         android:id="@+id/phonenumber"
-        android:textSize="30sp"
+        android:textSize="40sp"
         android:background="@drawable/phonenumbertextview"
         android:layout_margin="6dp"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
         android:gravity="center"
-        android:text="test"/>
+        android:layout_weight="1"
+
+        />
 
     <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:gravity="bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_weight="5"
         >
 
         <TableRow
             android:gravity="center"
             >
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="1"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="1"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="2"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="2"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="3"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="3"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
         </TableRow>
 
         <TableRow
-            android:gravity="center">>
+            android:gravity="center">
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="4"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="4"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="5"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="5"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="6"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="6"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
         </TableRow>
@@ -97,31 +108,34 @@
         <TableRow
             android:gravity="center">
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="7"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="7"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="8"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="8"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="9"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="9"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
         </TableRow>
@@ -129,47 +143,56 @@
         <TableRow
             android:gravity="center">
 
-            <ImageButton
+            <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:tag="0"
                 android:id="@+id/test"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
+                android:text="0"
+                android:background="@drawable/keypadcircle"
                 android:layout_margin="@dimen/keypadmargin"
+                android:alpha="0.4"
                 />
 
 
         </TableRow>
 
-        <TableLayout>
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/deletebutton"
-                android:src="@drawable/circlebutton"
-                android:background="@android:color/transparent"
-                android:layout_margin="@dimen/keypadmargin"
-                android:tag="deletebutton"
-                android:contentDescription="@string/description"
-                />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/dialbutton"
-                android:tag="dialbutton"
-                android:src="@drawable/phonedialbutton"
-                android:layout_margin="@dimen/keypadmargin"
-                android:background="@android:color/transparent"
-                android:contentDescription="@string/description"
-                />
-
-
         </TableLayout>
 
+    <LinearLayout
+        android:layout_weight="2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="2">
 
-    </TableLayout>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/dialbutton"
+            android:text="Call"
+            android:tag="dialbutton"
+            android:layout_margin="@dimen/keypadmargin"
+            android:background="@drawable/keypadcircle"
+            android:contentDescription="@string/description"
+            android:alpha="0.4"
+            />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/deletebutton"
+                android:text="Delete"
+                android:layout_margin="@dimen/keypadmargin"
+                android:background="@drawable/keypadcircle"
+                android:tag="deletebutton"
+                android:contentDescription="@string/description"
+                android:alpha="0.4"
+                />
+    </LinearLayout>
 
 
 </LinearLayout>
