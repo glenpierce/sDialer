@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
@@ -27,9 +28,9 @@ public class DialPadFragment extends Fragment{
 
 
             //numpad
-            final Button keyPad[] = new Button[10];
+            final ImageButton keyPad[] = new ImageButton[10];
             for (int i = 0; i <= 9; i++) {
-                keyPad[i] = (Button) v.findViewWithTag(Integer.toString(i));
+                keyPad[i] = (ImageButton) v.findViewWithTag(Integer.toString(i));
                 if (keyPad[i] == null) {
                     Log.i("asdf", "keypad" + Integer.toString(i) + " is null");
                 } else {
@@ -44,7 +45,7 @@ public class DialPadFragment extends Fragment{
 
 
                 //Delete button - clears the phone number
-                Button deleteButton = (Button) v.findViewById(R.id.deletebutton);
+                ImageButton deleteButton = (ImageButton) v.findViewById(R.id.deletebutton);
                 deleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -54,7 +55,7 @@ public class DialPadFragment extends Fragment{
                 });
 
                 //Dial button - calls the phone intent
-                Button dialButton = (Button) v.findViewById(R.id.dialbutton);
+                ImageButton dialButton = (ImageButton) v.findViewById(R.id.dialbutton);
                 dialButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

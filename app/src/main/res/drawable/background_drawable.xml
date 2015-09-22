@@ -9,7 +9,7 @@
 
     <gradient
         android:startColor="#006499"
-        android:endColor="#0093d7"
+        android:endColor="#0093d5"
         android:angle="90"
         >
 

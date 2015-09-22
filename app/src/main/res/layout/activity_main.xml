@@ -9,7 +9,7 @@
                 tools:context=".MainActivity"
                 android:orientation="vertical"
                 android:weightSum="40"
-    android:background="@drawable/backgrounddrawable"
+    android:background="@drawable/background_drawable"
                 >
 
     <LinearLayout
@@ -33,7 +33,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:id="@+id/contactsButtonTab"
-            android:background="@drawable/phonenumbertextview"
+            android:background="@drawable/phonenumber_textview"
             android:text="Contacts"
             android:textColor="#000000"
             android:alpha="0.4"
@@ -45,7 +45,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="dial"
-            android:background="@drawable/phonenumbertextview"
+            android:background="@drawable/phonenumber_textview"
             android:id="@+id/dialbuttonTab"
             android:textColor="#000000"
             android:alpha="0.4"
