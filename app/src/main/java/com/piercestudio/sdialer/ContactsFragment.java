@@ -12,6 +12,7 @@ import java.net.URL;
 import android.content.ContentResolver;
 import android.provider.ContactsContract;
 import android.content.Context;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -19,8 +20,7 @@ import java.util.ArrayList;
 public class ContactsFragment extends Fragment
 {
 
-    ArrayList<String> contacts;
-    ContactsAdapter adapter;
+    ArrayList<String> contactsArray = new ArrayList<>();
     ContentResolver contentResolver;
     Cursor cursor;
     View v;
@@ -33,20 +33,18 @@ public class ContactsFragment extends Fragment
         v = inflater.inflate(R.layout.contacts_list_layout, container, false);
         ListView listView = (ListView) v.findViewById(R.id.contacts_list_layout_id);
 
-        
-
         contentResolver = getActivity().getContentResolver();
-        cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI,
-                                       null, null, null, null);
+        cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         while (cursor.moveToNext()) {
-            String name = cursor
-                    .getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-            String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+            //String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            contactsArray.add(name);
         }
         cursor.close();
 
+        ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, contactsArray);
 
-
+        listView.setAdapter(adapter);
 
         return v;
     }

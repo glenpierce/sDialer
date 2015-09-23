@@ -9,7 +9,7 @@
                 tools:context=".MainActivity"
                 android:orientation="vertical"
                 android:weightSum="40"
-    android:background="@drawable/background_drawable"
+                android:background="@drawable/background_drawable"
                 >
 
     <LinearLayout
@@ -26,7 +26,8 @@
         android:orientation="horizontal"
         android:layout_weight="1"
         android:weightSum="2"
-        android:id="@+id/navigationbar">
+        android:id="@+id/navigationbar"
+        >
 
         <Button
             android:layout_width="wrap_content"

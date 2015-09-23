@@ -2,6 +2,20 @@
 <items version="2" >
 
     <item
+        jar="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
+        <dex dex="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/pre-dexed/debug/classes-ea01afe96a56b593a91e8ed4473f4e9d768dba7e.jar" />
+    </item>
+    <item
+        jar="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars/libs/internal_impl-21.0.3.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
+        <dex dex="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-a7046b77efde70f6fd67e52d3a213a5eccd9c5fb.jar" />
+    </item>
+    <item
         jar="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.3/jars/classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -14,20 +28,6 @@
         revision="21.1.2"
         sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
         <dex dex="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-cf161d4f13ca3948e463c3112d8619e1bd1ca4e4.jar" />
-    </item>
-    <item
-        jar="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars/libs/internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-a7046b77efde70f6fd67e52d3a213a5eccd9c5fb.jar" />
-    </item>
-    <item
-        jar="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.3/jars/classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="/Users/GrandeMaison/Documents/Piercestudio/Androidprojects/sDialer/app/build/intermediates/pre-dexed/debug/classes-ea01afe96a56b593a91e8ed4473f4e9d768dba7e.jar" />
     </item>
 
 </items>
