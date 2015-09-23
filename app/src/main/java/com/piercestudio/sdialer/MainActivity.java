@@ -25,8 +25,6 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		Button testButton = (Button) findViewById(R.id.test);
-
 		Button dialButton = (Button) findViewById(R.id.dialbuttonTab);
 		dialButton.setOnClickListener(new View.OnClickListener() {
 			@Override

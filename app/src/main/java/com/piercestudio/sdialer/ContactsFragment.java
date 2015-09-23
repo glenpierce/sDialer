@@ -15,6 +15,7 @@ import android.content.Context;
 import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class ContactsFragment extends Fragment
@@ -38,9 +39,14 @@ public class ContactsFragment extends Fragment
         while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
             //String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+            //Change String name to a custom class with an embeded onclick listner. Therefore contactsArray would be ArrayList<ContactItem>
+            //add the name and phone number to the custom ContactItem, figure out how to get the OnClickListener to link to the correct contact
+
             contactsArray.add(name);
         }
         cursor.close();
+
+        Collections.sort(contactsArray);
 
         ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, contactsArray);
 
