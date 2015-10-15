@@ -1,6 +1,7 @@
 package com.piercestudio.sdialer;
 
 import android.app.Fragment;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,24 +9,24 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
 public class DialPadFragment extends Fragment{
 
+	String TAG ="asdf";
     View v;
-
+	EditText phoneNumberEditText;
+	boolean thereIsALeading1 = false;
 
     @Override
 	    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-
             v = inflater.inflate(R.layout.dialpadlayout, container, false);
 
-            final TextView phoneNumberEditText = (TextView) v.findViewById(R.id.phonenumber);
-
-
+            phoneNumberEditText = (EditText) v.findViewById(R.id.phonenumber);
 
             //numpad
             final ImageButton keyPad[] = new ImageButton[10];
@@ -34,24 +35,57 @@ public class DialPadFragment extends Fragment{
                 if (keyPad[i] == null) {
                     Log.i("asdf", "keypad" + Integer.toString(i) + " is null");
                 } else {
+
+
                     keyPad[i].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + v.getTag().toString());
-                        }
+							if (thisIsAPreceding1(v)) {
+								addDigit(v);
+							} else {
+								if (thereShouldBeADash(v)) {
+									addDash();
+								}
+								addDigit(v);
+							}
+						}
                     });
                 }
             }
 
+				//Star and Hash keys
+		final ImageButton starKey = (ImageButton) v.findViewWithTag("*");
+		starKey.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+//				phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + v.getTag().toString());
+			}
+		});
 
-                //Delete button - clears the phone number
-                ImageButton deleteButton = (ImageButton) v.findViewById(R.id.deletebutton);
+		final ImageButton hashKey = (ImageButton) v.findViewWithTag("#");
+		hashKey.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				//phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + v.getTag().toString());
+			}
+		});
+
+                //Delete button
+                final ImageButton deleteButton = (ImageButton) v.findViewById(R.id.deletebutton);
                 deleteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        phoneNumberEditText.setText("");
-                    }
-
+						if (phoneNumberEditText.getText() != null && phoneNumberEditText.getText().toString().length() != 0) {
+							if (lastDigitIsDash()) {
+								Log.i(TAG, "lastdigitisdash");
+								deleteLastDigit();
+							}
+							deleteLastDigit();
+							if (phoneNumberEditText.getText().toString().length() == 0) {
+								thereIsALeading1 = false;
+							}
+						}
+					}
                 });
 
                 //Dial button - calls the phone intent
@@ -65,4 +99,41 @@ public class DialPadFragment extends Fragment{
 
             return v;
         }
+
+	private boolean thisIsAPreceding1(View v){
+		if(v.getTag().toString().equals("1") && phoneNumberEditText.getText().toString().length()==0) {
+			thereIsALeading1 = true;
+			return true;
+		}
+		return false;
+	}
+
+	private boolean thereShouldBeADash(View v){
+		if(thereIsALeading1 && (phoneNumberEditText.getText().toString().length()== 1 ||phoneNumberEditText.getText().toString().length()==5 || phoneNumberEditText.getText().toString().length()==9)){
+			return true;
+		}
+		if(!thereIsALeading1 && (phoneNumberEditText.getText().toString().length()==3 || phoneNumberEditText.getText().toString().length()==7)){
+			return true;
+		}
+		return false;
+	}
+
+	private void addDash(){
+		phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + "-");
+	}
+
+	private void addDigit(View v){
+		phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + v.getTag().toString());
+	}
+
+	private boolean lastDigitIsDash(){
+		if(phoneNumberEditText.getText().toString().substring(phoneNumberEditText.getText().toString().length() - 1).equals("-")){
+			return true;
+		}
+		return false;
+	}
+
+	private void deleteLastDigit(){
+		phoneNumberEditText.setText(phoneNumberEditText.getText().toString().substring(0, phoneNumberEditText.length() - 1));
+	}
 }

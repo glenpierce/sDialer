@@ -8,12 +8,12 @@
     </solid>
 
     <size
-        android:width="60dp"
-        android:height="60dp"/>
+        android:width="@dimen/circlesize"
+        android:height="@dimen/circlesize"/>
 
     <!-- view border color and width -->
     <stroke
-        android:width="3dp"
+        android:width="2dp"
         android:color="#FFFFFF">
     </stroke>
 

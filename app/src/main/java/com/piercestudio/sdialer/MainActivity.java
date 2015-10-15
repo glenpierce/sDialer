@@ -7,10 +7,13 @@ import android.app.FragmentTransaction;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
+import android.graphics.Typeface;
 
 
 public class MainActivity extends Activity
 {
+
+	static Typeface robotoThin;
 
 	FragmentManager fragmentManager = getFragmentManager();
 	FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -25,7 +28,10 @@ public class MainActivity extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
+		robotoThin = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
+
 		Button dialButton = (Button) findViewById(R.id.dialbuttonTab);
+		dialButton.setTypeface(robotoThin);
 		dialButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -40,6 +46,7 @@ public class MainActivity extends Activity
 		});
 
 		Button contactsButton = (Button) findViewById(R.id.contactsButtonTab);
+		contactsButton.setTypeface(robotoThin);
 		contactsButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -53,7 +60,13 @@ public class MainActivity extends Activity
 			}
 		});
 
+		FragmentManager fragmentManager = getFragmentManager();
+		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
+		DialPadFragment dialpadFragment = new DialPadFragment();
+
+		fragmentTransaction.replace(R.id.phonescreen, dialpadFragment);
+		fragmentTransaction.commit();
 
 	}
 }

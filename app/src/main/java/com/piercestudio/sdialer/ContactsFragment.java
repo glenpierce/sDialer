@@ -38,6 +38,7 @@ public class ContactsFragment extends Fragment
         cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
         while (cursor.moveToNext()) {
             String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+
             //String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
             //Change String name to a custom class with an embeded onclick listner. Therefore contactsArray would be ArrayList<ContactItem>
             //add the name and phone number to the custom ContactItem, figure out how to get the OnClickListener to link to the correct contact
