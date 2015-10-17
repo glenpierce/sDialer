@@ -8,17 +8,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lastName"
-        android:textStyle="bold"/>
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:text=", "/>
+        android:text=", "
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/firstName"/>
+        android:id="@+id/firstName"
+        />
 
 </LinearLayout>

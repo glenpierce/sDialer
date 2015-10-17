@@ -35,15 +35,19 @@ public class ContactsFragment extends Fragment
         ListView listView = (ListView) v.findViewById(R.id.contacts_list_layout_id);
 
         contentResolver = getActivity().getContentResolver();
+
+		//Stop being lazy and finish the .query method call null, null, null, null is not acceptable
         cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
-        while (cursor.moveToNext()) {
-            String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
 
-            //String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-            //Change String name to a custom class with an embeded onclick listner. Therefore contactsArray would be ArrayList<ContactItem>
-            //add the name and phone number to the custom ContactItem, figure out how to get the OnClickListener to link to the correct contact
+		while (cursor.moveToNext()) {
+			if(cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))>0){
+                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                //String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                //Change String name to a custom class with an embeded onclick listner. Therefore contactsArray would be ArrayList<ContactItem>
+                //add the name and phone number to the custom ContactItem, figure out how to get the OnClickListener to link to the correct contact
 
-            contactsArray.add(name);
+                contactsArray.add(name);
+            }
         }
         cursor.close();
 
