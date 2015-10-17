@@ -4,22 +4,13 @@
     android:layout_height="match_parent"
     >
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.piercestudio.sdialer.TextViewWithFont
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/lastName"
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=", "
-        />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/firstName"
+        android:id="@+id/name"
+        android:textSize="20sp"
+        android:layout_margin="5dp"
+        android:background="#00000000"
         />
 
 </LinearLayout>

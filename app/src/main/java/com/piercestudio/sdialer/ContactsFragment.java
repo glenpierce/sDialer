@@ -1,28 +1,29 @@
 package com.piercestudio.sdialer;
 
 import android.app.Fragment;
-import android.os.AsyncTask;
+import android.content.ContentResolver;
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.ContactsContract;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.LayoutInflater;
+import android.widget.AdapterView;
 import android.widget.ListView;
-import android.database.Cursor;
-import java.net.URL;
-import android.content.ContentResolver;
-import android.provider.ContactsContract;
-import android.content.Context;
-import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
 
-public class ContactsFragment extends Fragment
-{
+public class ContactsFragment extends Fragment {
 
-    ArrayList<String> contactsArray = new ArrayList<>();
-    ContentResolver contentResolver;
+	String TAG = "glen";
+
+    ArrayList<Contact> contactsList = new ArrayList<Contact>();
+	ContentResolver contentResolver;
     Cursor cursor;
     View v;
 
@@ -34,30 +35,48 @@ public class ContactsFragment extends Fragment
         v = inflater.inflate(R.layout.contacts_list_layout, container, false);
         ListView listView = (ListView) v.findViewById(R.id.contacts_list_layout_id);
 
-        contentResolver = getActivity().getContentResolver();
-
+		contentResolver = getActivity().getContentResolver();
 		//Stop being lazy and finish the .query method call null, null, null, null is not acceptable
-        cursor = contentResolver.query(ContactsContract.Contacts.CONTENT_URI, null, null, null, null);
+		Uri uri = ContactsContract.CommonDataKinds.Phone.CONTENT_URI;
+//		String[] projection = new String[] {
+//				ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
+//				ContactsContract.CommonDataKinds.Phone.NUMBER};
+        cursor = contentResolver.query(uri, null, null, null, null);
 
 		while (cursor.moveToNext()) {
-			if(cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))>0){
-                String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-                //String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                //Change String name to a custom class with an embeded onclick listner. Therefore contactsArray would be ArrayList<ContactItem>
-                //add the name and phone number to the custom ContactItem, figure out how to get the OnClickListener to link to the correct contact
+			Log.i(TAG, cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)));
+			if(cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))>0) {
+				if (!cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME)).contains("YouMail")) {
+					String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+					String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
-                contactsArray.add(name);
-            }
+					Contact contact = new Contact();
+					contact.setName(name);
+					contact.setPhoneNumber(phoneNumber);
+
+					contactsList.add(contact);
+					Log.i(TAG, contact.getName());
+				}
+			}
         }
-        cursor.close();
+		cursor.close();
 
-        Collections.sort(contactsArray);
+		Collections.sort(contactsList);
 
-        ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, contactsArray);
+		ContactsAdapter contatctsAdapter = new ContactsAdapter(getActivity(), contactsList);
+		listView.setAdapter(contatctsAdapter);
 
-        listView.setAdapter(adapter);
+		listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+		{
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+			{
+				Log.i(TAG, contactsList.get(position).getName());
+				startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + contactsList.get(position).getPhoneNumber())));
+			}
+		});
 
-        return v;
+		return v;
     }
 
 }
