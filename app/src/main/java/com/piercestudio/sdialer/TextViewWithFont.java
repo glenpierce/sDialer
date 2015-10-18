@@ -9,17 +9,17 @@ public class TextViewWithFont extends TextView
 {
 	public TextViewWithFont(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		this.setTypeface(MainActivity.robotoThin);
+		this.setTypeface(MainViewPagerActivity.robotoThin);
 	}
 
 	public TextViewWithFont(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		this.setTypeface(MainActivity.robotoThin);
+		this.setTypeface(MainViewPagerActivity.robotoThin);
 	}
 
 	public TextViewWithFont(Context context) {
 		super(context);
-		this.setTypeface(MainActivity.robotoThin);
+		this.setTypeface(MainViewPagerActivity.robotoThin);
 	}
 
 }

@@ -1,7 +1,5 @@
 package com.piercestudio.sdialer;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -15,11 +13,11 @@ public class MainViewPagerActivity extends FragmentActivity
 
 	static Typeface robotoThin;
 
-	FragmentManager fragmentManager = getFragmentManager();
-	FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-	DialPadFragment dialpadFragment = new DialPadFragment();
-	ContactsFragment contactsFragment = new ContactsFragment();
+//	FragmentManager fragmentManager = getFragmentManager();
+//	FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//
+//	DialPadFragment dialpadFragment = new DialPadFragment();
+//	ContactsFragment contactsFragment = new ContactsFragment();
 
 
 	@Override
@@ -27,7 +25,7 @@ public class MainViewPagerActivity extends FragmentActivity
 	{
 		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.viewpager_activity_main);
 
 		robotoThin = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
 
@@ -92,7 +90,7 @@ public class MainViewPagerActivity extends FragmentActivity
 
 		@Override
 		public int getCount() {
-			return 5;
+			return 2;
 		}
 	}
 }

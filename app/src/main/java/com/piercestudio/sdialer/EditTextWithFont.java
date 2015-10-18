@@ -9,17 +9,17 @@ public class EditTextWithFont extends EditText
 {
 	public EditTextWithFont(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		this.setTypeface(MainActivity.robotoThin);
+		this.setTypeface(MainViewPagerActivity.robotoThin);
 	}
 
 	public EditTextWithFont(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		this.setTypeface(MainActivity.robotoThin);
+		this.setTypeface(MainViewPagerActivity.robotoThin);
 	}
 
 	public EditTextWithFont(Context context) {
 		super(context);
-		this.setTypeface(MainActivity.robotoThin);
+		this.setTypeface(MainViewPagerActivity.robotoThin);
 	}
 
 }
