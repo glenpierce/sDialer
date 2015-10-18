@@ -1,6 +1,6 @@
 package com.piercestudio.sdialer;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
