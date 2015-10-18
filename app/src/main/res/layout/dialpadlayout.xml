@@ -16,7 +16,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        >
+
 
     <com.piercestudio.sdialer.EditTextWithFont
         android:layout_width="match_parent"
@@ -24,14 +25,27 @@
         android:id="@+id/phonenumber"
         android:focusable="false"
         android:enabled="false"
-        android:textSize="40sp"
+        android:textSize="35sp"
         android:textColor="#FFFFFF"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
         android:gravity="center"
         android:layout_weight="1"
         />
-        </RelativeLayout>
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/deletebutton"
+        android:tag="deletebutton"
+        android:layout_margin="@dimen/keypadmargin"
+        android:background="@drawable/deletebutton"
+        android:contentDescription="@string/description"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        />
+
+    </RelativeLayout>
 
     <TableLayout
         android:layout_width="wrap_content"
@@ -356,30 +370,6 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <com.piercestudio.sdialer.TextViewWithFont
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete"
-                android:layout_centerInParent="true"
-                />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/deletebutton"
-                android:tag="deletebutton"
-                android:layout_margin="@dimen/keypadmargin"
-                android:background="@drawable/keypad_circle"
-                android:contentDescription="@string/description"
-                android:alpha="0.4"
-                />
-
-        </RelativeLayout>
-
     </LinearLayout>
-
 
 </LinearLayout>
