@@ -23,19 +23,22 @@ public class ContactsAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		View view;
-		ViewHolder viewHolder;
+		ContactViewHolder contactViewHolder;
 		if(convertView == null) {
 			view = mInflater.inflate(R.layout.contact_item_layout, parent, false);
-			viewHolder = new ViewHolder();
-			viewHolder.name = (TextView)view.findViewById(R.id.name);
-			view.setTag(viewHolder);
+			contactViewHolder = new ContactViewHolder();
+			contactViewHolder.name = (TextView)view.findViewById(R.id.name);
+			contactViewHolder.type = (TextView)view.findViewById(R.id.type);
+			view.setTag(contactViewHolder);
 		} else {
 			view = convertView;
-			viewHolder = (ViewHolder)view.getTag();
+			contactViewHolder = (ContactViewHolder)view.getTag();
 		}
 
 		Contact contact = mContactsList.get(position);
-		viewHolder.name.setText(contact.getName());
+		contactViewHolder.name.setText(contact.getName());
+		contactViewHolder.type.setText(contact.getType());
+
 
 		return view;
 	}

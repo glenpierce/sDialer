@@ -1,13 +1,12 @@
 package com.piercestudio.sdialer;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.provider.ContactsContract;
+import android.graphics.Typeface;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.graphics.Typeface;
 
 
 public class MainActivity extends Activity
@@ -25,6 +24,7 @@ public class MainActivity extends Activity
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
+		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
@@ -39,7 +39,6 @@ public class MainActivity extends Activity
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 				DialPadFragment dialpadFragment = new DialPadFragment();
-
 				fragmentTransaction.replace(R.id.phonescreen, dialpadFragment);
 				fragmentTransaction.commit();
 			}
@@ -54,7 +53,6 @@ public class MainActivity extends Activity
 				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 
 				ContactsFragment contactsFragment = new ContactsFragment();
-
 				fragmentTransaction.replace(R.id.phonescreen, contactsFragment);
 				fragmentTransaction.commit();
 			}

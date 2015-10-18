@@ -6,7 +6,8 @@ package com.piercestudio.sdialer;
 public class Contact implements Comparable<Contact>
 {
 	private String name;
-	private String phoneNumber;
+	private String phoneNumber = "";
+	private String type = "";
 
 	Contact(){
 	}
@@ -25,6 +26,14 @@ public class Contact implements Comparable<Contact>
 
 	public void setPhoneNumber(String newPhoneNumber){
 		phoneNumber = newPhoneNumber;
+	}
+
+	public String getType(){
+		return type;
+	}
+
+	public void setType(String newType){
+		type = newType;
 	}
 
 	public int compareTo(Contact another){

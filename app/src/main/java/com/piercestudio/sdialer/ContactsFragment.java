@@ -50,9 +50,29 @@ public class ContactsFragment extends Fragment {
 					String name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
 					String phoneNumber = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
+					int numberType = cursor.getInt(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.TYPE));
+					String type = "";
+					switch (numberType){
+						case ContactsContract.CommonDataKinds.Phone.TYPE_HOME:
+							type = "Home";
+							break;
+						case ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE:
+							type = "Mobile";
+							break;
+						case ContactsContract.CommonDataKinds.Phone.TYPE_WORK:
+							type = "Work";
+							break;
+						case ContactsContract.CommonDataKinds.Phone.TYPE_CUSTOM:
+							type = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.LABEL));
+							break;
+						default:
+							break;
+					}
+
 					Contact contact = new Contact();
 					contact.setName(name);
 					contact.setPhoneNumber(phoneNumber);
+					contact.setType(type);
 
 					contactsList.add(contact);
 					Log.i(TAG, contact.getName());
