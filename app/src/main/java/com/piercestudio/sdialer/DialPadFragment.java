@@ -67,7 +67,7 @@ public class DialPadFragment extends Fragment
 			@Override
 			public void onClick(View view)
 			{
-//				phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + v.getTag().toString());
+				phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + "*");
 			}
 		});
 
@@ -77,7 +77,7 @@ public class DialPadFragment extends Fragment
 			@Override
 			public void onClick(View view)
 			{
-				//phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + v.getTag().toString());
+				phoneNumberEditText.setText(phoneNumberEditText.getText().toString() + "#");
 			}
 		});
 

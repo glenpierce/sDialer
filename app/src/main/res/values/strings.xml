@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Phone2</string>
+    <string name="app_name">Phone</string>
 
     <string name="description">description</string>
     <string name="phonenumber">Phone Number</string>

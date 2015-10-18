@@ -1,12 +1,12 @@
 package com.piercestudio.sdialer;
 
-import android.support.v4.app.Fragment;
 import android.content.ContentResolver;
-import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -92,7 +92,8 @@ public class ContactsFragment extends Fragment {
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id)
 			{
 				Log.i(TAG, contactsList.get(position).getName());
-				startActivity(new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + contactsList.get(position).getPhoneNumber())));
+				DialogFragment confirmCallDialogFragment = ConfirmCallDialogFragment.newInstance(contactsList.get(position));
+				confirmCallDialogFragment.show(getFragmentManager(), "string");
 			}
 		});
 

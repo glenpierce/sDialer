@@ -350,11 +350,11 @@
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <com.piercestudio.sdialer.TextViewWithFont
+            <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Call"
                 android:layout_centerInParent="true"
+                android:src="@drawable/callbutton"
                 />
 
             <ImageButton
