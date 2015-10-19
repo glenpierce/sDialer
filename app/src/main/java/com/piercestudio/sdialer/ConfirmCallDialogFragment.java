@@ -35,6 +35,7 @@ public class ConfirmCallDialogFragment extends DialogFragment
 	public void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
+
 		contactName = getArguments().getString("name");
 		contactNumber = getArguments().getString("number");
 		contactNumberType = getArguments().getString("numbertype");
@@ -44,8 +45,7 @@ public class ConfirmCallDialogFragment extends DialogFragment
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-
-		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+		AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), AlertDialog.THEME_HOLO_LIGHT);
 		LayoutInflater inflater = getActivity().getLayoutInflater();
 		View dialogView = inflater.inflate(R.layout.confirm_call_dialog, null);
 

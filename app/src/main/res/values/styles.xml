@@ -5,4 +5,10 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="AppThemeNoStatusBar" parent="@android:style/Theme.NoTitleBar.Fullscreen">
+    </style>
+
+    <style name="DialogTheme" parent="Theme.AppCompat.NoActionBar">
+    </style>
+
 </resources>

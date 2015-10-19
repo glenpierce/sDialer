@@ -2,7 +2,7 @@
 <LinearLayout android:layout_height="match_parent"
               android:layout_width="match_parent"
               xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="horizontal"
+              android:orientation="vertical"
     >
 
     <LinearLayout
@@ -39,5 +39,11 @@
             />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#40FFFFFF">
+    </FrameLayout>
 
 </LinearLayout>

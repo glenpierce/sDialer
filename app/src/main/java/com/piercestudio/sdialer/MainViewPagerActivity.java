@@ -5,69 +5,58 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.view.View;
+import android.util.Log;
 
 
 public class MainViewPagerActivity extends FragmentActivity
 {
 
+	String TAG = "glen";
+
 	static Typeface robotoThin;
-
-//	FragmentManager fragmentManager = getFragmentManager();
-//	FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//	DialPadFragment dialpadFragment = new DialPadFragment();
-//	ContactsFragment contactsFragment = new ContactsFragment();
-
+	ViewPager viewPager;
+	MyPagerAdapter myPagerAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
-		getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.viewpager_activity_main);
 
 		robotoThin = Typeface.createFromAsset(getAssets(), "Roboto-Thin.ttf");
 
-		ViewPager pager = (ViewPager) findViewById(R.id.viewPager);
-		pager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+		viewPager = (ViewPager) findViewById(R.id.viewPager);
+		myPagerAdapter = new MyPagerAdapter(getSupportFragmentManager());
+		viewPager.setAdapter(myPagerAdapter);
 
-//		Button dialButton = (Button) findViewById(R.id.dialbuttonTab);
-//		dialButton.setTypeface(robotoThin);
-//		dialButton.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View view) {
-//				FragmentManager fragmentManager = getFragmentManager();
-//				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//				DialPadFragment dialpadFragment = new DialPadFragment();
-//				fragmentTransaction.replace(R.id.phonescreen, dialpadFragment);
-//				fragmentTransaction.commit();
-//			}
-//		});
-//
-//		Button contactsButton = (Button) findViewById(R.id.contactsButtonTab);
-//		contactsButton.setTypeface(robotoThin);
-//		contactsButton.setOnClickListener(new View.OnClickListener() {
-//			@Override
-//			public void onClick(View view) {
-//				FragmentManager fragmentManager = getFragmentManager();
-//				FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//				ContactsFragment contactsFragment = new ContactsFragment();
-//				fragmentTransaction.replace(R.id.phonescreen, contactsFragment);
-//				fragmentTransaction.commit();
-//			}
-//		});
-//
-//		FragmentManager fragmentManager = getFragmentManager();
-//		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//
-//		DialPadFragment dialpadFragment = new DialPadFragment();
-//
-//		fragmentTransaction.replace(R.id.phonescreen, dialpadFragment);
-//		fragmentTransaction.commit();
+		viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener()
+		{
 
+			@Override
+			public void onPageSelected(int index)
+			{
+				if(index == 0){
+					Log.i(TAG, "contacts fragement selected");
+				}
+			}
+
+			@Override
+			public void onPageScrolled(int arg0, float arg1, int arg2)
+			{
+			}
+
+			@Override
+			public void onPageScrollStateChanged(int arg0)
+			{
+			}
+		});
+
+	}
+
+	@Override
+	public void onResume(){
+		Log.i(TAG, "onResume");
+		super.onResume();
 	}
 
 
@@ -82,8 +71,12 @@ public class MainViewPagerActivity extends FragmentActivity
 		@Override
 		public android.support.v4.app.Fragment getItem(int pos) {
 			switch(pos) {
-				case 0: return new ContactsFragment();
-				case 1: return new DialPadFragment();
+				case 0:
+					Log.i(TAG, "Contacts page");
+					return new ContactsFragment();
+				case 1:
+					Log.i(TAG, "Dial page");
+					return new DialPadFragment();
 			}
 			return null;
 		}

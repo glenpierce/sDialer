@@ -11,10 +11,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher2"
+        android:icon="@mipmap/ic_launcher5"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
+        android:theme="@style/AppThemeNoStatusBar"
         >
+        <!--android:theme="@style/AppTheme"-->
+        <!--android:theme="@style/AppThemeNoStatusBar"-->
         <activity
             android:name=".MainViewPagerActivity"
             android:label="@string/app_name"
