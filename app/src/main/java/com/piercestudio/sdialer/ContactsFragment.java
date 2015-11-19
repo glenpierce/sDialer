@@ -26,14 +26,21 @@ public class ContactsFragment extends Fragment {
 	ContentResolver contentResolver;
     Cursor cursor;
     View v;
+	private ContactsAdapter contactsAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		contactsList = getUpdatedContactList(getActivity());
 	}
 
-    @Override
+	@Override
+	public void onResume()
+	{
+		super.onResume();
+		contactsList = getUpdatedContactList(getActivity());
+		contactsAdapter.notifyDataSetChanged();
+	}
+	@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -41,8 +48,8 @@ public class ContactsFragment extends Fragment {
         v = inflater.inflate(R.layout.contacts_list_layout, container, false);
         ListView listView = (ListView) v.findViewById(R.id.contacts_list_layout_id);
 
-		ContactsAdapter contatctsAdapter = new ContactsAdapter(getActivity(), contactsList);
-		listView.setAdapter(contatctsAdapter);
+		 contactsAdapter = new ContactsAdapter(getActivity(), contactsList);
+		listView.setAdapter(contactsAdapter);
 
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
 		{
