@@ -74,6 +74,7 @@ public class ContactsFragment extends Fragment {
 //				ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
 //				ContactsContract.CommonDataKinds.Phone.NUMBER};
 		cursor = contentResolver.query(uri, null, null, null, null);
+		contactsList.clear();
 
 		while (cursor.moveToNext())
 		{
